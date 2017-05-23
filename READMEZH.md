@@ -1,6 +1,9 @@
 # ZZYQRCodeSwift
 
 使用系统API（AVFoundation）进行封装，包含UI界面以及对二维码，条形码进行扫描，生成等操作
+
+### Objective-C Version: **[ZZYQRCode](https://github.com/zhang28602/ZZYQRCode)**
+
 ## 如何安装
 
 ```
