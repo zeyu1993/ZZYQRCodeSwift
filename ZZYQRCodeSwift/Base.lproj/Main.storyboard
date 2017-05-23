@@ -95,25 +95,6 @@
             </objects>
             <point key="canvasLocation" x="1724" y="701"/>
         </scene>
-        <!--Scan View Controller-->
-        <scene sceneID="0NU-Y4-I3f">
-            <objects>
-                <viewController storyboardIdentifier="scanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Btd-Zr-toc" customClass="ScanViewController" customModule="ZZYQRCodeSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fTr-bH-MPV"/>
-                        <viewControllerLayoutGuide type="bottom" id="JFH-un-A0R"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GOJ-hv-trX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Y08-Fr-doE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gaM-Hl-Tw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1745" y="-45"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="CUm-IA-elF">
             <objects>
@@ -132,5 +113,72 @@
             </objects>
             <point key="canvasLocation" x="-18.399999999999999" y="157.87106446776613"/>
         </scene>
+        <!--scan(扫描)-->
+        <scene sceneID="Hg8-5n-Cei">
+            <objects>
+                <viewController storyboardIdentifier="scanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1E7-sy-vbj" customClass="ScanViewController" customModule="ZZYQRCodeSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wvm-IJ-q3g"/>
+                        <viewControllerLayoutGuide type="bottom" id="C7d-hS-sTB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UaY-VD-Gwc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="48e-z7-aUK">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="QIq-Uk-gbj">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="wqr-rl-AM9">
+                                        <rect key="frame" x="0.0" y="-170" width="200" height="170"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="170" id="LjB-br-gez"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QIq-Uk-gbj" secondAttribute="bottom" id="7vX-IR-Gyp"/>
+                                    <constraint firstAttribute="trailing" secondItem="wqr-rl-AM9" secondAttribute="trailing" id="HwT-gk-A9r"/>
+                                    <constraint firstAttribute="height" constant="200" id="Sdo-sD-wzY"/>
+                                    <constraint firstItem="QIq-Uk-gbj" firstAttribute="leading" secondItem="48e-z7-aUK" secondAttribute="leading" id="UjH-6a-rir"/>
+                                    <constraint firstAttribute="trailing" secondItem="QIq-Uk-gbj" secondAttribute="trailing" id="Z7f-P3-8JF"/>
+                                    <constraint firstItem="QIq-Uk-gbj" firstAttribute="top" secondItem="48e-z7-aUK" secondAttribute="top" id="ZSK-D2-yLw"/>
+                                    <constraint firstAttribute="top" secondItem="wqr-rl-AM9" secondAttribute="top" constant="170" id="hzW-60-LdQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="igr-Sd-SaP"/>
+                                    <constraint firstItem="wqr-rl-AM9" firstAttribute="leading" secondItem="48e-z7-aUK" secondAttribute="leading" id="pxX-7G-dT3"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zo-GR-bME">
+                                <rect key="frame" x="141" y="463.5" width="92" height="34"/>
+                                <state key="normal" title="打开闪光灯"/>
+                                <connections>
+                                    <action selector="changeState:" destination="1E7-sy-vbj" eventType="touchUpInside" id="ebg-0x-aYp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7Zo-GR-bME" firstAttribute="top" secondItem="48e-z7-aUK" secondAttribute="bottom" constant="30" id="9H5-bK-iMj"/>
+                            <constraint firstItem="7Zo-GR-bME" firstAttribute="centerX" secondItem="UaY-VD-Gwc" secondAttribute="centerX" id="gbi-w0-gfF"/>
+                            <constraint firstAttribute="centerY" secondItem="48e-z7-aUK" secondAttribute="centerY" id="iuM-q3-wur"/>
+                            <constraint firstAttribute="centerX" secondItem="48e-z7-aUK" secondAttribute="centerX" id="ma1-bm-Cpp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="scan(扫描)" id="SHC-VK-iRt"/>
+                    <connections>
+                        <outlet property="scanTop" destination="hzW-60-LdQ" id="PzQ-IR-1Ec"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xKs-xV-cmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="9"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="qrcode_border" width="51" height="50"/>
+        <image name="qrcode_scanline_qrcode" width="218" height="170"/>
+    </resources>
 </document>

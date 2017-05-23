@@ -10,8 +10,15 @@ import UIKit
 
 class ScanViewController: UIViewController ,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     var sessionManager:AVCaptureSessionManager?
+    var link: CADisplayLink?
+    var torchState = false
+    
+    @IBOutlet weak var scanTop: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        link = CADisplayLink(target: self, selector: #selector(scan))
         
         sessionManager = AVCaptureSessionManager(captureType: .AVCaptureTypeBoth, scanRect: CGRect.null, success: { (result) in
             if let r = result {
@@ -26,12 +33,29 @@ class ScanViewController: UIViewController ,UIImagePickerControllerDelegate, UIN
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        link?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
         sessionManager?.start()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        link?.remove(from: RunLoop.main, forMode: RunLoopMode.commonModes)
         sessionManager?.stop()
     }
+    
+    func scan() {
+        scanTop.constant -= 1;
+        if (scanTop.constant <= -170) {
+            scanTop.constant = 170;
+        }
+    }
+    
+    @IBAction func changeState(_ sender: UIButton) {
+        torchState = !torchState
+        let str = torchState ? "关闭闪光灯" : "开启闪光灯"
+        sessionManager?.turnTorch(state: torchState)
+        sender.setTitle(str, for: .normal)
+    }
+    
     
     func showResult(result: String) {
         let alert = UIAlertView(title: "扫描结果", message: result, delegate: nil, cancelButtonTitle: "确定")
