@@ -32,7 +32,7 @@
                                 <rect key="frame" x="142.5" y="318.5" width="90" height="30"/>
                                 <state key="normal" title="scanQRCode"/>
                                 <connections>
-                                    <segue destination="Btd-Zr-toc" kind="push" id="Mal-nM-0hY"/>
+                                    <action selector="scanBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yZ7-1c-Sa0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -98,7 +98,7 @@
         <!--Scan View Controller-->
         <scene sceneID="0NU-Y4-I3f">
             <objects>
-                <viewController id="Btd-Zr-toc" customClass="ScanViewController" customModule="ZZYQRCodeSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Btd-Zr-toc" customClass="ScanViewController" customModule="ZZYQRCodeSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fTr-bH-MPV"/>
                         <viewControllerLayoutGuide type="bottom" id="JFH-un-A0R"/>
