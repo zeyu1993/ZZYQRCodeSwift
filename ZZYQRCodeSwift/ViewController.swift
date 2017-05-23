@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let image = UIImage.createQRCode(size: 200, dataStr: "你好")
+        self.imageView.image = image; 
     }
 
     override func didReceiveMemoryWarning() {

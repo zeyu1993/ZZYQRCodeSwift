@@ -14,6 +14,7 @@
 		F8D7EC281ED309B7004BD6EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D7EC261ED309B7004BD6EB /* LaunchScreen.storyboard */; };
 		F8D7EC331ED309B7004BD6EB /* ZZYQRCodeSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC321ED309B7004BD6EB /* ZZYQRCodeSwiftTests.swift */; };
 		F8D7EC3E1ED309B7004BD6EB /* ZZYQRCodeSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC3D1ED309B7004BD6EB /* ZZYQRCodeSwiftUITests.swift */; };
+		F8D7EC4C1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC4B1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		F8D7EC391ED309B7004BD6EB /* ZZYQRCodeSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZZYQRCodeSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D7EC3D1ED309B7004BD6EB /* ZZYQRCodeSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZYQRCodeSwiftUITests.swift; sourceTree = "<group>"; };
 		F8D7EC3F1ED309B7004BD6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8D7EC4B1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ZZYQRCodeImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				F8D7EC241ED309B7004BD6EB /* Assets.xcassets */,
 				F8D7EC261ED309B7004BD6EB /* LaunchScreen.storyboard */,
 				F8D7EC291ED309B7004BD6EB /* Info.plist */,
+				F8D7EC4B1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift */,
 			);
 			path = ZZYQRCodeSwift;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D7EC201ED309B7004BD6EB /* ViewController.swift in Sources */,
+				F8D7EC4C1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift in Sources */,
 				F8D7EC1E1ED309B7004BD6EB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
