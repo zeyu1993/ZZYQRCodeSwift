@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F8C4F6331ED499C600239E48 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4F6321ED499C600239E48 /* ScanViewController.swift */; };
-		F8C4F6351ED49BE900239E48 /* ZZYQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F8C4F6341ED49BE900239E48 /* ZZYQRCode.bundle */; };
+		F8C4F63A1ED4B2F700239E48 /* AVCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4F6371ED4B2F700239E48 /* AVCaptureSessionManager.swift */; };
+		F8C4F63B1ED4B2F700239E48 /* UIImage+ZZYQRCodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4F6381ED4B2F700239E48 /* UIImage+ZZYQRCodeImage.swift */; };
+		F8C4F63C1ED4B2F700239E48 /* ZZYQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F8C4F6391ED4B2F700239E48 /* ZZYQRCode.bundle */; };
 		F8D7EC1E1ED309B7004BD6EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC1D1ED309B7004BD6EB /* AppDelegate.swift */; };
 		F8D7EC201ED309B7004BD6EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC1F1ED309B7004BD6EB /* ViewController.swift */; };
 		F8D7EC231ED309B7004BD6EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D7EC211ED309B7004BD6EB /* Main.storyboard */; };
@@ -16,9 +18,7 @@
 		F8D7EC281ED309B7004BD6EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D7EC261ED309B7004BD6EB /* LaunchScreen.storyboard */; };
 		F8D7EC331ED309B7004BD6EB /* ZZYQRCodeSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC321ED309B7004BD6EB /* ZZYQRCodeSwiftTests.swift */; };
 		F8D7EC3E1ED309B7004BD6EB /* ZZYQRCodeSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC3D1ED309B7004BD6EB /* ZZYQRCodeSwiftUITests.swift */; };
-		F8D7EC4C1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC4B1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift */; };
 		F8D7EC4E1ED430BF004BD6EB /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC4D1ED430BF004BD6EB /* CreateViewController.swift */; };
-		F8D7EC501ED43441004BD6EB /* AVCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7EC4F1ED43441004BD6EB /* AVCaptureSessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,9 @@
 
 /* Begin PBXFileReference section */
 		F8C4F6321ED499C600239E48 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		F8C4F6341ED49BE900239E48 /* ZZYQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZZYQRCode.bundle; sourceTree = "<group>"; };
+		F8C4F6371ED4B2F700239E48 /* AVCaptureSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionManager.swift; sourceTree = "<group>"; };
+		F8C4F6381ED4B2F700239E48 /* UIImage+ZZYQRCodeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ZZYQRCodeImage.swift"; sourceTree = "<group>"; };
+		F8C4F6391ED4B2F700239E48 /* ZZYQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZZYQRCode.bundle; sourceTree = "<group>"; };
 		F8D7EC1A1ED309B7004BD6EB /* ZZYQRCodeSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZYQRCodeSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D7EC1D1ED309B7004BD6EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8D7EC1F1ED309B7004BD6EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,9 +56,7 @@
 		F8D7EC391ED309B7004BD6EB /* ZZYQRCodeSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZZYQRCodeSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D7EC3D1ED309B7004BD6EB /* ZZYQRCodeSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZYQRCodeSwiftUITests.swift; sourceTree = "<group>"; };
 		F8D7EC3F1ED309B7004BD6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8D7EC4B1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ZZYQRCodeImage.swift"; sourceTree = "<group>"; };
 		F8D7EC4D1ED430BF004BD6EB /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
-		F8D7EC4F1ED43441004BD6EB /* AVCaptureSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8C4F6361ED4B2F700239E48 /* ZZYQRCodeSwift */ = {
+			isa = PBXGroup;
+			children = (
+				F8C4F6371ED4B2F700239E48 /* AVCaptureSessionManager.swift */,
+				F8C4F6381ED4B2F700239E48 /* UIImage+ZZYQRCodeImage.swift */,
+				F8C4F6391ED4B2F700239E48 /* ZZYQRCode.bundle */,
+			);
+			path = ZZYQRCodeSwift;
+			sourceTree = "<group>";
+		};
 		F8D7EC111ED309B7004BD6EB = {
 			isa = PBXGroup;
 			children = (
@@ -107,17 +117,15 @@
 		F8D7EC1C1ED309B7004BD6EB /* ZZYQRCodeSwift */ = {
 			isa = PBXGroup;
 			children = (
-				F8C4F6341ED49BE900239E48 /* ZZYQRCode.bundle */,
+				F8C4F6361ED4B2F700239E48 /* ZZYQRCodeSwift */,
 				F8D7EC1D1ED309B7004BD6EB /* AppDelegate.swift */,
 				F8D7EC1F1ED309B7004BD6EB /* ViewController.swift */,
+				F8D7EC4D1ED430BF004BD6EB /* CreateViewController.swift */,
+				F8C4F6321ED499C600239E48 /* ScanViewController.swift */,
 				F8D7EC211ED309B7004BD6EB /* Main.storyboard */,
 				F8D7EC241ED309B7004BD6EB /* Assets.xcassets */,
 				F8D7EC261ED309B7004BD6EB /* LaunchScreen.storyboard */,
 				F8D7EC291ED309B7004BD6EB /* Info.plist */,
-				F8D7EC4B1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift */,
-				F8D7EC4D1ED430BF004BD6EB /* CreateViewController.swift */,
-				F8D7EC4F1ED43441004BD6EB /* AVCaptureSessionManager.swift */,
-				F8C4F6321ED499C600239E48 /* ScanViewController.swift */,
 			);
 			path = ZZYQRCodeSwift;
 			sourceTree = "<group>";
@@ -253,7 +261,7 @@
 				F8D7EC281ED309B7004BD6EB /* LaunchScreen.storyboard in Resources */,
 				F8D7EC251ED309B7004BD6EB /* Assets.xcassets in Resources */,
 				F8D7EC231ED309B7004BD6EB /* Main.storyboard in Resources */,
-				F8C4F6351ED49BE900239E48 /* ZZYQRCode.bundle in Resources */,
+				F8C4F63C1ED4B2F700239E48 /* ZZYQRCode.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,10 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C4F63A1ED4B2F700239E48 /* AVCaptureSessionManager.swift in Sources */,
+				F8C4F63B1ED4B2F700239E48 /* UIImage+ZZYQRCodeImage.swift in Sources */,
 				F8D7EC4E1ED430BF004BD6EB /* CreateViewController.swift in Sources */,
 				F8D7EC201ED309B7004BD6EB /* ViewController.swift in Sources */,
-				F8D7EC4C1ED31070004BD6EB /* UIImage+ZZYQRCodeImage.swift in Sources */,
-				F8D7EC501ED43441004BD6EB /* AVCaptureSessionManager.swift in Sources */,
 				F8D7EC1E1ED309B7004BD6EB /* AppDelegate.swift in Sources */,
 				F8C4F6331ED499C600239E48 /* ScanViewController.swift in Sources */,
 			);
