@@ -14,6 +14,7 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var QRImageBg: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let image = UIImage(named: "bigMax")
         QRImage.image = UIImage.createCustomizeQRCode(size: 200,
                                                       dataStr: "hello",
