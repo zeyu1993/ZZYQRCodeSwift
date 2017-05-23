@@ -31,6 +31,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZB-v7-B80">
                                 <rect key="frame" x="142.5" y="318.5" width="90" height="30"/>
                                 <state key="normal" title="scanQRCode"/>
+                                <connections>
+                                    <segue destination="Btd-Zr-toc" kind="push" id="Mal-nM-0hY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,7 +93,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6S-AP-gN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="155"/>
+            <point key="canvasLocation" x="1724" y="701"/>
+        </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="0NU-Y4-I3f">
+            <objects>
+                <viewController id="Btd-Zr-toc" customClass="ScanViewController" customModule="ZZYQRCodeSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fTr-bH-MPV"/>
+                        <viewControllerLayoutGuide type="bottom" id="JFH-un-A0R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GOJ-hv-trX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y08-Fr-doE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gaM-Hl-Tw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CUm-IA-elF">
