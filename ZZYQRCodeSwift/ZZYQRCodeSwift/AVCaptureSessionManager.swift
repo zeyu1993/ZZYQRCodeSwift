@@ -23,8 +23,8 @@ class AVCaptureSessionManager: AVCaptureSession, AVCaptureMetadataOutputObjectsD
     
     private var block: SuccessBlock?
     
-    private lazy var device: AVCaptureDevice = {
-       return AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+    private lazy var device: AVCaptureDevice? = {
+       return AVCaptureDevice.default(for:.video)
     }()
     
     private lazy var preViewLayer: AVCaptureVideoPreviewLayer = {
@@ -46,10 +46,12 @@ class AVCaptureSessionManager: AVCaptureSession, AVCaptureMetadataOutputObjectsD
     
         var input: AVCaptureDeviceInput?
         do {
-            input = try AVCaptureDeviceInput(device: device)
+            if let device = device {
+                input = try AVCaptureDeviceInput(device: device)
+            }
         } catch let error as NSError {
             print("AVCaputreDeviceError \(error)")
-        }
+    }
         
         let output = AVCaptureMetadataOutput()
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
@@ -58,14 +60,18 @@ class AVCaptureSessionManager: AVCaptureSession, AVCaptureMetadataOutputObjectsD
             output.rectOfInterest = scanRect
         }
         
-        sessionPreset = AVCaptureSessionPresetHigh
-        if canAddInput(input) {
-            addInput(input)
-        }
+        sessionPreset = AVCaptureSession.Preset.high
+        if let input = input {
+            if canAddInput(input) {
+                addInput(input)
+            }
         
+        }
+    
         if canAddOutput(output) {
             addOutput(output)
         }
+    
         output.metadataObjectTypes = captureType.supportTypes()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(stop),
@@ -101,12 +107,11 @@ class AVCaptureSessionManager: AVCaptureSession, AVCaptureMetadataOutputObjectsD
     ///   - grant: 同意回调
     ///   - denied: 拒绝回调
     class func checkAuthorizationStatusForCamera(grant:@escaping GrantBlock, denied:DeniedBlock) {
-        
-        if let device = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) {
-            let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        if AVCaptureDevice.devices(for: AVMediaType.video).count > 0 {
+            let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
             switch status {
             case .notDetermined:
-                AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted) in
+                AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted) in
                     if granted {
                         DispatchQueue.main.async(execute: {
                             grant()
@@ -176,7 +181,7 @@ class AVCaptureSessionManager: AVCaptureSession, AVCaptureMetadataOutputObjectsD
     ///
     /// - Parameter view: 需要在哪个View中显示
     func showPreViewLayerIn(view :UIView) {
-        preViewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        preViewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         preViewLayer.frame = view.bounds
         view.layer.insertSublayer(preViewLayer, at: 0)
         start()
@@ -187,18 +192,20 @@ class AVCaptureSessionManager: AVCaptureSession, AVCaptureMetadataOutputObjectsD
     ///
     /// - Parameter state: 闪光灯状态
     func turnTorch(state:Bool) {
-        if (device.hasTorch) {
-            do {
-                try device.lockForConfiguration()
-            } catch let error as NSError {
-                print("TorchError  \(error)")
+        if let device = device {
+            if (device.hasTorch) {
+                do {
+                    try device.lockForConfiguration()
+                } catch let error as NSError {
+                    print("TorchError  \(error)")
+                }
+                if (state) {
+                    device.torchMode = AVCaptureDevice.TorchMode.on
+                } else {
+                    device.torchMode = AVCaptureDevice.TorchMode.off
+                }
+                device.unlockForConfiguration()
             }
-            if (state) {
-                device.torchMode = AVCaptureTorchMode.on
-            } else {
-                device.torchMode = AVCaptureTorchMode.off
-            }
-            device.unlockForConfiguration()
         }
     }
     
@@ -221,16 +228,17 @@ class AVCaptureSessionManager: AVCaptureSession, AVCaptureMetadataOutputObjectsD
     }
     
     /// 开启扫描
-    func start() {
+    @objc func start() {
         startRunning()
     }
     
     /// 停止扫描
-    func stop() {
+    @objc func stop() {
         stopRunning()
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if (metadataObjects.count > 0) {
             // 停止扫描
             stop()
@@ -246,37 +254,37 @@ enum AVCaptureType {
     case AVCaptureTypeQRCode
     case AVCaptureTypeBarCode
     case AVCaptureTypeBoth
-    func supportTypes() -> [String] {
+    func supportTypes() -> [AVMetadataObject.ObjectType] {
         switch self {
         case .AVCaptureTypeQRCode:
-            return [AVMetadataObjectTypeQRCode]
+            return [AVMetadataObject.ObjectType.qr]
         case .AVCaptureTypeBarCode:
-            return [AVMetadataObjectTypeDataMatrixCode,
-                    AVMetadataObjectTypeITF14Code,
-                    AVMetadataObjectTypeInterleaved2of5Code,
-                    AVMetadataObjectTypeAztecCode,
-                    AVMetadataObjectTypePDF417Code,
-                    AVMetadataObjectTypeCode128Code,
-                    AVMetadataObjectTypeCode93Code,
-                    AVMetadataObjectTypeEAN8Code,
-                    AVMetadataObjectTypeEAN13Code,
-                    AVMetadataObjectTypeCode39Mod43Code,
-                    AVMetadataObjectTypeCode39Code,
-                    AVMetadataObjectTypeUPCECode]
+            return [AVMetadataObject.ObjectType.dataMatrix,
+                    AVMetadataObject.ObjectType.itf14,
+                    AVMetadataObject.ObjectType.interleaved2of5,
+                    AVMetadataObject.ObjectType.aztec,
+                    AVMetadataObject.ObjectType.pdf417,
+                    AVMetadataObject.ObjectType.code128,
+                    AVMetadataObject.ObjectType.code93,
+                    AVMetadataObject.ObjectType.ean8,
+                    AVMetadataObject.ObjectType.ean13,
+                    AVMetadataObject.ObjectType.code39Mod43,
+                    AVMetadataObject.ObjectType.code39,
+                    AVMetadataObject.ObjectType.upce]
         case .AVCaptureTypeBoth:
-            return [AVMetadataObjectTypeQRCode,
-                    AVMetadataObjectTypeDataMatrixCode,
-                    AVMetadataObjectTypeITF14Code,
-                    AVMetadataObjectTypeInterleaved2of5Code,
-                    AVMetadataObjectTypeAztecCode,
-                    AVMetadataObjectTypePDF417Code,
-                    AVMetadataObjectTypeCode128Code,
-                    AVMetadataObjectTypeCode93Code,
-                    AVMetadataObjectTypeEAN8Code,
-                    AVMetadataObjectTypeEAN13Code,
-                    AVMetadataObjectTypeCode39Mod43Code,
-                    AVMetadataObjectTypeCode39Code,
-                    AVMetadataObjectTypeUPCECode]
+            return [AVMetadataObject.ObjectType.qr,
+                    AVMetadataObject.ObjectType.dataMatrix,
+                    AVMetadataObject.ObjectType.itf14,
+                    AVMetadataObject.ObjectType.interleaved2of5,
+                    AVMetadataObject.ObjectType.aztec,
+                    AVMetadataObject.ObjectType.pdf417,
+                    AVMetadataObject.ObjectType.code128,
+                    AVMetadataObject.ObjectType.code93,
+                    AVMetadataObject.ObjectType.ean8,
+                    AVMetadataObject.ObjectType.ean13,
+                    AVMetadataObject.ObjectType.code39Mod43,
+                    AVMetadataObject.ObjectType.code39,
+                    AVMetadataObject.ObjectType.upce]
         }
     }
 }

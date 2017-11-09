@@ -17,7 +17,6 @@ class ScanViewController: UIViewController ,UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         link = CADisplayLink(target: self, selector: #selector(scan))
         
         sessionManager = AVCaptureSessionManager(captureType: .AVCaptureTypeBoth, scanRect: CGRect.null, success: { (result) in
@@ -42,7 +41,7 @@ class ScanViewController: UIViewController ,UIImagePickerControllerDelegate, UIN
         sessionManager?.stop()
     }
     
-    func scan() {
+    @objc func scan() {
         scanTop.constant -= 1;
         if (scanTop.constant <= -170) {
             scanTop.constant = 170;
@@ -62,7 +61,7 @@ class ScanViewController: UIViewController ,UIImagePickerControllerDelegate, UIN
         alert .show()
     }
     
-    func openPhotoLib() {
+    @objc func openPhotoLib() {
         AVCaptureSessionManager.checkAuthorizationStatusForPhotoLibrary(grant: { 
             let imagePicker = UIImagePickerController()
             imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
