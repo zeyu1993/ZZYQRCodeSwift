@@ -9,7 +9,7 @@
 ```
 platform :ios, '8.0'
 use_frameworks!
-pod 'ZZYQRCodeSwift', '~> 1.0.0'
+pod 'ZZYQRCodeSwift', '~> 1.1.0'
 ```
 
 ## 如何使用
