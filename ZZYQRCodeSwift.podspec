@@ -18,4 +18,5 @@ s.requires_arc = true
 s.ios.deployment_target = "8.0"
 s.source_files = "ZZYQRCodeSwift/ZZYQRCodeSwift/*.{swift}"
 s.resources = "ZZYQRCodeSwift/ZZYQRCodeSwift/ZZYQRCode.bundle"
+s.swift_version = "4.1"
 end
