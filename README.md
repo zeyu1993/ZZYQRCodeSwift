@@ -2,6 +2,8 @@
 
 Using the system API (AVFoundation) for packaging, including the UI interface and QR code, barcode scanning, generating and other operations 
 
+### Support swift4.1
+
 ### Objective-C Version: **[ZZYQRCode](https://github.com/zhang28602/ZZYQRCode)**
 
 ### [中文介绍](https://github.com/zhang28602/ZZYQRCodeSwift/blob/master/READMEZH.md)
